@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>EL HACKER | Busos y Moda Urbana</title>
+    <meta name="description" content="Tienda urbana premium de busos, camisetas y ropa streetwear. Compra online con carrito funcional y checkout simulado." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121212" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <div id="app">
+        <header class="site-header">
+            <div class="logo" aria-label="Urban Store logo"> <span>EL </span>HACKER</div>
+            <nav class="main-nav" aria-label="Principal">
+                <a href="#home">Inicio</a>
+                <a href="#catalog">Catálogo</a>
+                <a href="#cart">Carrito</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn ghost toggle-favorites" type="button">Favoritos</button>
+                <button class="btn primary" id="cartToggle" aria-haspopup="dialog" aria-controls="cartModal">
+                    Carrito (<span id="cart-count">0</span>)
+                </button>
+                <button class="btn login-btn" onclick="window.location.href='./inicio de usuario/inivio de cesion/public/login.html'">
+                    Iniciar sesión</button>
+               
+    
+</div>
+
+        </header>
+
+        <main>
+            <section id="home" class="hero">
+                <div class="hero__content">
+                    <p class="eyebrow">Colección urbana 2025</p>
+                    <h1>Busos, camisetas y actitud para la calle.</h1>
+                    <p>Descubre piezas limitadas, detalles premium y siluetas inspiradas en el movimiento urbano global. Envíos rápidos, devoluciones sin complicaciones y atención personalizada.</p>
+                    <div class="hero__ctas">
+                        <a href="#catalog" class="btn primary">Ver catálogo</a>
+                        <button class="btn secondary" id="showFavorites">Ver favoritos</button>
+                    </div>
+                </div>
+                <div class="hero__badge">
+                    <span>NUEVAS</span>
+                    <p>Ediciones con acabado mate, contrastes metálicos y materiales sostenibles.</p>
+                </div>
+            </section>
+
+            <section class="featured" aria-label="Productos destacados">
+                <div class="section-heading">
+                    <h2>Destacados</h2>
+                    <p>Selección curada por nuestro estudio creativo.</p>
+                </div>
+                <div class="featured-grid" id="featuredProducts"></div>
+            </section>
+
+            <section class="promo" aria-label="Promociones">
+                <div class="promo__card">
+                    <h3>Envíos express</h3>
+                    <p>En Colombia en menos de 48 horas para compras superiores a $150.000.</p>
+                </div>
+                <div class="promo__card">
+                    <h3>Atención personalizada</h3>
+                    <p>Agenda asesoría de talles y styling gratuito con nuestro equipo.</p>
+                </div>
+            </section>
+
+            
+                <!-- Reemplaza la sección del catálogo existente (línea ~130-160 aproximadamente) -->
+<section id="catalog" class="catalog">
+    <div class="catalog__header">
+        <div>
+            <p class="eyebrow">Filtra y encuentra</p>
+            <h2>Todo el catálogo</h2>
+        </div>
+        
+        <div class="search-wrapper">
+            <label for="searchInput">Buscar:</label>
+            <input type="search" id="searchInput" placeholder="Busos, camisetas, colores..." aria-label="Buscar productos" />
+        </div>
+    </div>
+
+    <div class="catalog__layout">
+        <aside class="filters" id="filterPanel">
+            <h3>Filtros activos</h3>
+            <div class="filter-group">
+                <label for="sizeFilter">Tallas</label>
+                <select id="sizeFilter">
+                    <option value="all">Mostrar todas</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="colorFilter">Colores</label>
+                <select id="colorFilter">
+                    <option value="all">Mostrar todos</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="priceFilter">Rango de precio</label>
+                <select id="priceFilter">
+                    <option value="all">Todos</option>
+                    <option value="0-50000">Menos de $50.000</option>
+                    <option value="50000-80000">$50.000 - $80.000</option>
+                    <option value="80000-120000">$80.000 - $120.000</option>
+                    <option value="120000-999999">Más de $120.000</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="sortSelect">Ordenar por</label>
+                <select id="sortSelect">
+                    <option value="featured">Destacados</option>
+                    <option value="price-asc">Precio ascendente</option>
+                    <option value="price-desc">Precio descendente</option>
+                    <option value="name-asc">A-Z</option>
+                    <option value="name-desc">Z-A</option>
+                </select>
+            </div>
+            
+            <button class="btn ghost" id="clearFilters" type="button">Limpiar filtros</button>
+        </aside>
+
+        <div class="catalog__main">
+            <!-- CARDS DESTACADAS HORIZONTALES -->
+            <div class="sidebar-featured-horizontal">
+                <h3>Productos Destacados</h3>
+                <div class="featured-cards-row">
+                    <div class="sidebar-product-card">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=300&fit=crop" alt="Buso Negro Premium" />
+                        <div class="sidebar-product-info">
+                            <h4>Buso Negro Premium</h4>
+                            <p class="sidebar-price">$89.900</p>
+                            <div class="sidebar-details">
+                                <span class="sidebar-size">Tallas: S, M, L, XL</span>
+                                <span class="sidebar-stock available">✓ Disponible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-product-card">
+                        <img src="https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=300&h=300&fit=crop" alt="Hoodie Oversized" />
+                        <div class="sidebar-product-info">
+                            <h4>Hoodie Oversized</h4>
+                            <p class="sidebar-price">$95.000</p>
+                            <div class="sidebar-details">
+                                <span class="sidebar-size">Tallas: M, L, XL</span>
+                                <span class="sidebar-stock available">✓ Disponible</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-product-card">
+                        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=300&h=300&fit=crop" alt="Camiseta Urban" />
+                        <div class="sidebar-product-info">
+                            <h4>Camiseta Urban</h4>
+                            <p class="sidebar-price">$45.000</p>
+                            <div class="sidebar-details">
+                                <span class="sidebar-size">Tallas: S, M, L</span>
+                                <span class="sidebar-stock limited">⚠ Pocas unidades</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-product-card">
+                        <img src="https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=300&h=300&fit=crop" alt="Sudadera Gris" />
+                        <div class="sidebar-product-info">
+                            <h4>Sudadera Gris</h4>
+                            <p class="sidebar-price">$78.500</p>
+                            <div class="sidebar-details">
+                                <span class="sidebar-size">Tallas: M, L</span>
+                                <span class="sidebar-stock unavailable">✗ Agotado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="catalog__grid" id="productGrid" aria-live="polite"></section>
+        </div>
+    </div>
+<!-- Botón Ver Más -->
+<div class="centro-boton">
+    <button class="btn-ver-mas" onclick="window.location.href='catalogo/catalogo.html'">
+        <span>Ver más productos</span>
+        <svg width="20" height="20" viewBox="0 0 20 20">
+            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+</div>
+
+
+
+            <section class="testimonial">
+                <div class="testimonial__content">
+                    <h3>Hecho para la cultura urbana</h3>
+                    <p>Tejidos con alma, procesos responsables y una comunidad que respira calle, arte y libertad.</p>
+                    <a href="#contact" class="btn secondary">Habla con un asesor</a>
+                </div>
+            </section>
+
+            <section id="contact" class="contact" aria-label="Contacto">
+                <div class="section-heading">
+                    <h2>Contáctanos</h2>
+                    <p>Solicita asesoría, tallas especiales o pedidos corporativos.</p>
+                </div>
+                <form class="contact__form" id="contactForm">
+                    <label for="contactName">Nombre completo</label>
+                    <input type="text" id="contactName" required minlength="3" placeholder="Tu nombre" />
+                    <label for="contactEmail">Correo electrónico</label>
+                    <input type="email" id="contactEmail" required placeholder="tucorreo@dominio.com" />
+                    <label for="contactMessage">Mensaje</label>
+                    <textarea id="contactMessage" rows="4" required placeholder="¿En qué te podemos ayudar?"></textarea>
+                    <button class="btn primary" type="submit">Enviar mensaje</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div>
+                <p class="logo">EL <span>HACKER</span></p>
+                <p>Ropa urbana premium con significado. Local en medellin, envíos a toda Colombia.</p>
+            </div>
+            <div>
+                <h4>Servicios</h4>
+                <ul>
+                    <li>Envíos express</li>
+                    <li>Cambio fácil</li>
+                    <li>Asesoría de estilo</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Redes</h4>
+                <ul>
+                    <li><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
+                    <li><a href="https://tiktok.com" target="_blank" rel="noreferrer">TikTok</a></li>
+                    <li><a href="https://www.pinterest.com" target="_blank" rel="noreferrer">Pinterest</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <p>holaxrp@gmail.com</p>
+                <p>+57 313 325 2655</p>
+            </div>
+        </footer>
+    </div>
+
+    <div id="cartModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal__panel">
+            <header>
+                <h2>Tu carrito</h2>
+                <button class="modal__close" id="closeCart" aria-label="Cerrar carrito">&times;</button>
+            </header>
+            <div class="cart__content" id="cartItems"></div>
+            <div class="cart__summary" id="cartSummary"></div>
+            <form id="checkoutForm" class="checkout__form">
+                <h3>Checkout</h3>
+                <label for="clientName">Nombre</label>
+                <input type="text" id="clientName" required minlength="3" />
+                <label for="clientEmail">Correo</label>
+                <input type="email" id="clientEmail" required />
+                <label for="clientAddress">Dirección</label>
+                <input type="text" id="clientAddress" required />
+                <label for="clientNotes">Notas adicionales</label>
+                <textarea id="clientNotes" rows="3" placeholder="¿Alguna indicación especial?"></textarea>
+                <button class="btn primary" type="submit">Simular compra</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <div id="favoriteModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal__panel">
+            <header>
+                <h2>Favoritos</h2>
+                <button class="modal__close" id="closeFavorites" aria-label="Cerrar favoritos">&times;</button>
+            </header>
+            <div class="favorites__content" id="favoriteItems"></div>
+        </div>
+    </div>
+
+    <template id="productCardTemplate">
+        <article class="product-card">
+            <img src="" alt="" class="product-card__image" />
+            <div class="product-card__body">
+                <div class="product-card__meta">
+                    <span class="badge"></span>
+                    <button class="favorite-btn" aria-label="Agregar a favoritos">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <h3 class="product-card__title"></h3>
+                <p class="product-card__description"></p>
+                <p class="product-card__price"></p>
+                <div class="product-card__actions">
+                    <button class="btn primary add-to-cart" type="button">Agregar al carrito</button>
+                    <button class="btn ghost view-details" type="button">Ver detalles</button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <div id="productDetailModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal__panel">
+            <header>
+                <h2 id="detailTitle"></h2>
+                <button class="modal__close" id="closeDetail" aria-label="Cerrar detalles">&times;</button>
+            </header>
+            <div class="detail__grid">
+                <figure>
+                    <img src="" alt="" id="detailImage" />
+                    <figcaption id="detailBadge"></figcaption>
+                </figure>
+                <div class="detail__content">
+                    <p id="detailDescription"></p>
+                    <ul id="detailAttributes"></ul>
+                    <p class="detail__price" id="detailPrice"></p>
+                    <div class="detail__actions">
+                        <select id="detailSize" required></select>
+                        <button class="btn primary" id="detailAddToCart" type="button">Agregar al carrito</button>
+                    </div>
+                    <div class="related" aria-live="polite">
+                        <h4>Recomendado</h4>
+                        <div id="relatedProducts" class="related__grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="js/app.js" defer></script>
+</body>
+</html>

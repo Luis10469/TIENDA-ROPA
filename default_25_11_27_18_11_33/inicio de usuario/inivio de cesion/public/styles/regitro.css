@@ -1,0 +1,203 @@
+/* ============================
+   ESTILO GENERAL
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f0f0f;
+    font-family: "Space Grotesk", sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animación Fade-In */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================
+   HEADER
+============================ */
+.header {
+    background: #111;
+    padding: 16px 0;
+    border-bottom: 1px solid #222;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.03);
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo .neon {
+    color: #e60023;
+    text-shadow: 0 0 8px rgba(230,0,35,0.7);
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+/* ============================
+   CONTENEDOR REGISTRO
+============================ */
+.registro-main {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.registro-container {
+    background: #151515;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.06);
+    max-width: 450px;
+    width: 100%;
+    animation: floatCard 1.2s ease;
+}
+
+/* Animación suave de aparición vertical */
+@keyframes floatCard {
+    from { opacity: 0; transform: translateY(15px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ============================
+   FORMULARIO
+============================ */
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background: #0e0e0e;
+    border: 1px solid #333;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+/* Efecto de enfoque */
+.form-group input:focus {
+    border-color: #e60023;
+    box-shadow: 0 0 10px rgba(230,0,35,0.4);
+    outline: none;
+    transform: scale(1.02);
+}
+
+/* Errores */
+.form-error {
+    color: #e60023;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
+
+/* ============================
+   BOTÓN NEÓN
+============================ */
+.btn-neon {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #e60023;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.35s;
+    position: relative;
+}
+
+.btn-neon:hover {
+    background: #ff0030;
+    box-shadow: 0 0 12px rgba(255, 0, 48, 0.7);
+    transform: translateY(-2px);
+}
+
+/* ============================
+   LINKS DEL FOOTER
+============================ */
+.form-footer-text {
+    margin-top: 18px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.link-neon {
+    color: #e60023;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.link-neon:hover {
+    text-shadow: 0 0 8px rgba(255,0,0,0.6);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media (max-width: 500px) {
+    .registro-container {
+        padding: 30px 20px;
+    }
+}

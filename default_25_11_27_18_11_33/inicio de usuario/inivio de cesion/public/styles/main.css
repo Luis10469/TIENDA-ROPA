@@ -1,0 +1,216 @@
+:root {
+  --charcoal: #0a0a0c;
+  --ink: #050607;
+  --peach: #fc6f5b;
+  --lavender: #cdd6f7;
+  --rose: #ffcad4;
+  --smoke: rgba(255, 255, 255, 0.08);
+  --glass: rgba(255, 255, 255, 0.12);
+  --font-display: "Space Grotesk", "Manrope", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-display);
+  height: 100vh;
+  background: #050607;
+  color: #f8f8ff;
+  overflow: hidden;
+}
+
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.gradient-shape {
+  position: absolute;
+  width: 40vw;
+  height: 40vh;
+  filter: blur(40px);
+  opacity: 0.8;
+  animation: float 12s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.bg-one {
+  top: -10%;
+  left: -5%;
+  background: radial-gradient(circle, var(--peach) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.bg-two {
+  bottom: 5%;
+  right: 10%;
+  background: radial-gradient(circle, var(--lavender) 0%, transparent 70%);
+  animation-delay: 4s;
+}
+
+.bg-three {
+  top: 20%;
+  right: -5%;
+  background: radial-gradient(circle, var(--rose) 0%, transparent 70%);
+  animation-delay: 8s;
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero-card {
+  width: min(420px, 90vw);
+  background: rgba(10, 10, 12, 0.85);
+  border-radius: 28px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--peach);
+}
+
+.hero-card h1 {
+  font-size: 2.4rem;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.subtitle {
+  color: rgba(248, 248, 255, 0.75);
+  line-height: 1.6;
+}
+
+.login-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  color: rgba(248, 248, 255, 0.7);
+}
+
+.input-group input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.85rem 1rem;
+  color: #f8f8ff;
+  font-size: 1rem;
+  transition: border 0.3s ease, background 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: var(--peach);
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.btn {
+  font-size: 1rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.btn.primary {
+  background: linear-gradient(120deg, var(--peach), var(--rose));
+  color: #050607;
+  box-shadow: 0px 15px 25px rgba(252, 111, 91, 0.3);
+}
+
+.btn.secondary {
+  margin-top: 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #f8f8ff;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.message {
+  min-height: 28px;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.message.error {
+  color: #ff6161;
+}
+
+.message.success {
+  color: #7fdc8d;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeSlide 1.3s forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero-card h1 {
+    font-size: 2rem;
+  }
+}

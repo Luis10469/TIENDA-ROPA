@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo con Filtros - EL HACKER</title>
+
+    <!-- ENLACE AL CSS -->
+    <link rel="stylesheet" href="../css/catalogo.css">
+</head>
+<body>
+    <div class="catalog">
+        <div class="catalog__header">
+            <div>
+                <p style="color: var(--accent); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em;">Filtra y encuentra</p>
+                <h2 style="margin: 0;">Todo el catálogo</h2>
+            </div>
+            <div class="search-wrapper">
+                <label for="searchInput">Buscar:</label>
+                <input type="search" id="searchInput" placeholder="Busos, camisetas, colores...">
+            </div>
+        </div>
+
+        <div class="catalog__layout">
+            <aside class="filters">
+                <h3>Filtros activos</h3>
+
+                <div class="filter-group">
+                    <label for="sizeFilter">Tallas</label>
+                    <select id="sizeFilter">
+                        <option value="all">Mostrar todas</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="colorFilter">Colores</label>
+                    <select id="colorFilter">
+                        <option value="all">Mostrar todos</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="priceFilter">Rango de precio</label>
+                    <select id="priceFilter">
+                        <option value="all">Todos</option>
+                        <option value="0-50000">Menos de $50.000</option>
+                        <option value="50000-80000">$50.000 - $80.000</option>
+                        <option value="80000-120000">$80.000 - $120.000</option>
+                        <option value="120000-999999">Más de $120.000</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sortSelect">Ordenar por</label>
+                    <select id="sortSelect">
+                        <option value="featured">Destacados</option>
+                        <option value="price-asc">Precio ascendente</option>
+                        <option value="price-desc">Precio descendente</option>
+                        <option value="name-asc">A-Z</option>
+                        <option value="name-desc">Z-A</option>
+                    </select>
+                </div>
+
+                <button class="btn ghost" id="clearFilters">Limpiar filtros</button>
+            </aside>
+
+            <div class="catalog__main">
+                <div class="sidebar-featured-horizontal">
+                    <h3>Productos Destacados</h3>
+                    <div class="featured-cards-row" id="featuredCards"></div>
+                </div>
+
+                <div class="catalog__grid" id="productGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- ENLACE AL JS -->
+    <script src="../js/catalogo.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "urban-auth-suite",
+  "version": "1.0.0",
+  "description": "Modern authentication experience for an urban fashion storefront with animated login UX and secure backend.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "jest"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.17.4",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.2.2",
+    "mysql2": "^3.6.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  },
+  "license": "MIT"
+}

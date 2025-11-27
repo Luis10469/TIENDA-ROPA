@@ -1,0 +1,14 @@
+{
+  "name": "urban-store",
+  "version": "1.0.0",
+  "description": "Tienda urbana para busos, camisetas y ropa streetwear con carrito funcional y diseño responsivo.",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --open=./index.html"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "Urban Store Studio",
+  "license": "MIT"
+}
