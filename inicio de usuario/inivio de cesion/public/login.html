@@ -7,7 +7,7 @@
       content="Inicio de sesión elegante para la boutique de moda urbana con animaciones sofisticadas."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Urban Pulse | Inicio de sesión</title>
+    <title>EL HACKER | Inicio de sesión</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;600&display=swap"
@@ -23,40 +23,27 @@
     <main class="layout">
       <section class="hero-card fade-in">
         <div class="hero-content">
-          <p class="eyebrow">Urban Pulse</p>
+          <p class="eyebrow">EL HACKER</p>
           <h1>Inicia sesión</h1>
           <p class="subtitle">
             Accede a la colección exclusiva y controla tus pedidos con estilo y
             seguridad premium.
           </p>
         </div>
-        <form id="loginForm" class="login-form">
-          <div class="input-group">
-            <label for="email">Correo electrónico</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="tucorreo@urban.com"
-              required
-            />
-          </div>
-          <div class="input-group">
-            <label for="password">Contraseña</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="••••••••"
-              minlength="6"
-              required
-            />
-          </div>
-          <button type="submit" class="btn primary" id="submitButton">
-            Iniciar sesión
-          </button>
-          <div class="message" id="statusMessage" aria-live="polite"></div>
-        </form>
+        <form id="loginForm" class="login-form" action="../php/login.php" method="POST">
+    <div class="input-group">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" placeholder="tuemail@dominio.com" required />
+    </div>
+    <div class="input-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required />
+    </div>
+    <button type="submit" class="btn primary" id="submitButton">
+        Iniciar sesión
+    </button>
+</form>
+
        <button class="btn secondary" id="registerCta"
         onclick="window.location.href='./register.html'">
     Registrarse ahora

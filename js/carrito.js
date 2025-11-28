@@ -11,8 +11,8 @@
     const cartTemplate = document.getElementById("cart-item-template");
 
     const sampleProducts = [
-        { id: "prod-1", name: "Auriculares inalámbricos Pro Pulse", unitPrice: 299.99, quantity: 1 },
-        { id: "prod-2", name: "Smartwatch Indigo Series", unitPrice: 189.5, quantity: 2 },
+        { id: "prod-1", name: "buso neon", unitPrice: 299.99, quantity: 1 },
+        { id: "prod-2", name: "subo rojo", unitPrice: 189.5, quantity: 2 },
         { id: "prod-3", name: "Set de viaje minimalista", unitPrice: 79.9, quantity: 3 }
     ];
 

@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Registrarse - Tienda Urbana</title>
+    <title>Registrarse - EL HACKER</title>
     <link rel="stylesheet" href="./styles/regitro.css" />
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
 </head>
 <body>
     <header class="header">
         <div class="container header-container">
-            <a href="index.html" class="logo" aria-label="Tienda Urbana Logo">Tienda<span class="neon">Urbana</span></a>
+            <a href="index.html" class="logo" aria-label="Tienda Urbana Logo">EL <span class="neon">HACKER</span></a>
             <nav class="nav" aria-label="Menú principal">
                 <ul class="nav-list">
                     <li><a href="../../../index.html" class="nav-link">Inicio</a></li>
-                    <li><a href="login.html" class="nav-link">Iniciar sesión</a></li>
+                    <!-- <li><a href="login.html" class="nav-link">Iniciar sesión</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -22,7 +26,7 @@
     <main class="registro-main fade-in">
         <section class="registro-container container">
             <h2 class="section-title">Crear Cuenta</h2>
-            <form id="registerForm" action="backend/register.php" method="POST" novalidate class="formulario">
+            <form id="registerForm" novalidate class="formulario">
                 <div class="form-group">
                     <label for="nombre">Nombre completo</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name" />
@@ -50,5 +54,69 @@
     </main>
 
     <script src="js/app.js"></script>
+    <script>
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "TU_API_KEY",
+            authDomain: "TU_PROYECTO.firebaseapp.com",
+            projectId: "TU_PROYECTO",
+            storageBucket: "TU_PROYECTO.appspot.com",
+            messagingSenderId: "TU_ID",
+            appId: "TU_APP_ID"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Formulario de registro
+        const registerForm = document.getElementById('registerForm');
+        
+        // Detectar el evento de envío del formulario
+        registerForm.addEventListener('submit', async function(event) {
+            event.preventDefault();  // Prevenir la acción por defecto
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Verificar si el correo electrónico ya está registrado
+                const emailExists = await checkEmailExists(email);
+
+                if (emailExists) {
+                    alert("Este correo electrónico ya está registrado.");
+                    return;
+                }
+
+                // Registrar usuario
+                await registerUser(email, password, nombre);
+                alert("Registro exitoso!");
+
+                // Redirigir al login
+                window.location.href = 'login.html';
+            } catch (error) {
+                console.error('Error en el registro: ', error);
+                alert('Hubo un error al registrar el usuario.');
+            }
+        });
+
+        // Función para verificar si el correo electrónico ya está registrado
+        async function checkEmailExists(email) {
+            const usersRef = db.collection('usuarios');
+            const snapshot = await usersRef.where('email', '==', email).get();
+            return !snapshot.empty;
+        }
+
+        // Función para registrar un usuario en Firestore
+        async function registerUser(email, password, nombre) {
+            const userRef = db.collection('usuarios').doc();  // Crear documento único
+            await userRef.set({
+                nombre: nombre,
+                email: email,
+                password: password  // En producción, no debes guardar la contraseña en texto plano
+            });
+        }
+    </script>
 </body>
 </html>
+
