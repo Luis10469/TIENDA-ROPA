@@ -1,0 +1,20 @@
+{
+  "name": "modern-shopping-cart",
+  "version": "1.0.0",
+  "description": "Carrito moderno con animaciones, persistencia en localStorage y experiencia responsive.",
+  "main": "cart.html",
+  "scripts": {
+    "start": "live-server --open=cart.html --port=4321"
+  },
+  "keywords": [
+    "carrito",
+    "animaciones",
+    "localStorage",
+    "modern-ui"
+  ],
+  "author": "Carrito Moderno Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

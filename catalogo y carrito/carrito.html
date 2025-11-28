@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>El Hacker | Carrito Moderno</title>
+    <link rel="stylesheet" href="../css/carrito.css">
+</head>
+<body>
+    <header>
+        <h1>El Hacker   |   Cochinito Moderno</h1>
+        <p> ¡Hola! El carrito está listo y tu Cochinito está feliz de verte de regreso!</p>
+    </header>
+
+    <main>
+     <!-- BOTÓN REGRESAR A DOCUMENTO -->
+
+     <button class="back-btn" onclick="window.location.href='../index.html'">Regresar</button>
+
+
+        <!-- CARRITO -->
+        <section class="cart-section" aria-label="Productos del carrito">
+            <h2>Productos en el carrito</h2>
+            <div class="cart-items" id="cart-items" role="list"></div>
+            <div class="empty-state" id="empty-state" hidden>
+                <p>No hay productos guardados. Agrega más artículos para comenzar.</p>
+                <button id="reset-sample">Restablecer productos de muestra</button>
+            </div>
+        </section>
+
+        <!-- RESUMEN -->
+        <section class="summary-section" aria-label="Resumen del pedido">
+            <h2>Resumen</h2>
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <strong id="subtotal">₡0.00</strong>
+            </div>
+            <div class="summary-row">
+                <span>Impuestos (19%):</span>
+                <strong id="tax">₡0.00</strong>
+            </div>
+            <div class="summary-row">
+                <span>Descuentos:</span>
+                <strong id="discount">₡0.00</strong>
+            </div>
+            <div class="summary-row">
+                <span>Total:</span>
+                <strong id="total">₡0.00</strong>
+            </div>
+            <button class="primary-btn" id="checkout-btn" aria-label="Procesar pago">Procesar pago</button>
+        </section>
+    </main>
+
+    <footer>
+        <p> Gracias Por Confiar En Nosotros, Te Esperamos Pronto </p>
+    </footer>
+
+    <!-- TEMPLATE ITEM -->
+    <template id="cart-item-template">
+        <article class="cart-item" role="listitem">
+            <div>
+                <div class="cart-item-name"></div>
+                <div class="cart-item-price"></div>
+            </div>
+            <div class="quantity-controls">
+                <button class="decrement" aria-label="Disminuir cantidad">−</button>
+                <span class="quantity-value" aria-live="polite"></span>
+                <button class="increment" aria-label="Aumentar cantidad">+</button>
+            </div>
+            <div style="text-align: right;">
+                <button class="delete-btn">Eliminar</button>
+            </div>
+        </article>
+    </template>
+
+    <script src="../js/carrito.js"></script>
+</body>
+</html>
